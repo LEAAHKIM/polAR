@@ -97,6 +97,10 @@ public class InputHandler : InputSystemGlobalHandlerListener, IMixedRealityInput
 
     protected override void UnregisterHandlers()
     {
-        CoreServices.InputSystem.UnregisterHandler<IMixedRealityInputHandler>(this);
+        // adding if statement to allow it to at least compile: 
+        if (CoreServices.InputSystem != null) 
+        {
+            CoreServices.InputSystem.UnregisterHandler<IMixedRealityInputHandler>(this);
+        }
     }
 }
